@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .word-spacing-big {
+        word-spacing: 5px;
+    }
+    .big-layout {
+        grid-template-areas: "left timer right";
+    }
+    .small-layout {
+        grid-template-areas:
+            "timer timer"
+            "left right";
+    }
+    .area-timer {
+        grid-area: timer;
+    }
+    .area-left {
+        grid-area: left;
+    }
+    .area-right {
+        grid-area: right;
+    }
+}
+
+*,
+*::before,
+*::after {
+    font-family: "Lato", sans-serif;
+}
+
+body {
+    overflow: hidden !important;
+}
+
+.roomsScroll::-webkit-scrollbar {
+    width: 2px;
+}
+
+.roomsScroll::-webkit-scrollbar-track {
+    background: #2c2c2c;
+}
+
+.roomsScroll::-webkit-scrollbar-thumb {
+    background: #7d7d7d;
+}
+
+.solvesScroll::-webkit-scrollbar {
+    width: 4px;
+}
+
+.solvesScroll::-webkit-scrollbar-track {
+    background: #2c2c2c;
+}
+
+.solvesScroll::-webkit-scrollbar-thumb {
+    background: #7d7d7d;
+}

@@ -1,0 +1,39 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url = env("DATABASE_URL")
+}
+
+model User {
+	id String @id @default(uuid())
+	username String @unique
+	password String
+	selectedRoom Room? @relation("selected")
+	rooms Room[] @relation("user")
+}
+
+model Room {
+	id String @id @default(uuid())
+	name String 
+	createdAt DateTime @default(now())
+	selectedBy User? @relation("selected", fields:[selectedById], references:[id])
+	selectedById String? @unique
+	user User @relation("user", fields:[userId], references:[id])
+	userId String
+	solves Solve[]
+}
+
+model Solve {
+	id String @id @default(uuid())
+	scramble String
+	time String
+	plusTwo Boolean @default(false)
+	dnf Boolean @default(false)
+	comment String @default("")
+	createdAt DateTime @default(now())
+	room Room @relation(fields:[roomId], references:[id])	
+	roomId String
+}
