@@ -1,3 +1,6 @@
+# App for timing your rubik's cube times
+# Times will be saved and you can see stats
+
 ## add DATABASE_URL to .env
 
 ## add JWT_SECRET to .env
